@@ -19,7 +19,7 @@ struct MeetingSoonView: View {
                     .truncationMode(.tail)
             }
             .padding(.leading, 12)
-            .frame(width: IslandLayout.meetingWing, height: notchSize.height, alignment: .leading)
+            .frame(width: IslandLayout.activityWing, height: notchSize.height, alignment: .leading)
 
             Color.clear
                 .frame(width: notchSize.width, height: notchSize.height)
@@ -31,7 +31,7 @@ struct MeetingSoonView: View {
                     .foregroundStyle(meeting.start <= context.date ? Color.green : .white.opacity(0.75))
             }
             .padding(.trailing, 12)
-            .frame(width: IslandLayout.meetingWing, height: notchSize.height, alignment: .trailing)
+            .frame(width: IslandLayout.activityWing, height: notchSize.height, alignment: .trailing)
         }
     }
 

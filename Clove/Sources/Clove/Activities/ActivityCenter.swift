@@ -79,12 +79,7 @@ final class ActivityCenter: ObservableObject {
 
     /// Width of each wing beside the notch for the activity being shown.
     var wingWidth: CGFloat {
-        switch current?.kind {
-        case .lowBattery: return IslandLayout.noticeWing
-        case .charging, .volume, .brightness: return 76
-        case .audioDevice, .taskDue: return 110
-        case nil: return 0
-        }
+        current == nil ? 0 : IslandLayout.activityWing
     }
 
     /// Extra height below the notch for the level meter drawn along the island's bottom edge, for

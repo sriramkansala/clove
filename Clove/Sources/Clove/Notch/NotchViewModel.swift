@@ -168,7 +168,7 @@ final class NotchViewModel: ObservableObject {
                               height: notchSize.height + activities.meterHeight)
             }
             if showsMeetingActivity {
-                return CGSize(width: notchSize.width + 2 * IslandLayout.meetingWing, height: notchSize.height)
+                return CGSize(width: notchSize.width + 2 * IslandLayout.activityWing, height: notchSize.height)
             }
             if showsMusicActivity {
                 return CGSize(width: notchSize.width + 2 * compactWing, height: notchSize.height)

@@ -52,12 +52,13 @@ enum IslandLayout {
         (hasBattery ? systemBatteryTileHeight + systemTileGap : 0) + systemTileHeight + systemFooterGap + systemFooterHeight
     }
 
-    /// Wings of the collapsed "meeting soon" activity: title on the left, countdown on the right.
-    static let meetingWing: CGFloat = 120
+    /// Each wing of every popup beside the notch (charging, low battery, volume, a device, a
+    /// deadline, a meeting): one width for all, the open island's, so hovering a popup only grows
+    /// it downward. Now playing, which stays rather than pops up, keeps its narrow pill.
+    static let activityWing: CGFloat = minimumExpandedWing
 
     // Low-battery notice, below the camera: the level over a hint on the left, the battery in a
     // pill on the right. iOS's proportions at about 0.83 scale, a Mac point being larger.
-    static let noticeWing: CGFloat = 56
     static let noticePillSize = CGSize(width: 63, height: 38)
     /// Between the pill and the island's right and bottom edges.
     static let noticeInset: CGFloat = 10
