@@ -1,0 +1,15 @@
+# Build output (scripts/build.sh and the release scripts write everything here)
+build/
+.build/
+DerivedData/
+*.xcarchive
+
+# Xcode user state
+xcuserdata/
+*.xcuserstate
+
+# Local tooling
+.claude/
+orchestrator/
+
+.DS_Store
