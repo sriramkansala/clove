@@ -7,6 +7,13 @@ enum PlayerApp: String {
     case music = "com.apple.Music"
     case spotify = "com.spotify.client"
 
+    var displayName: String {
+        switch self {
+        case .music: return "Music"
+        case .spotify: return "Spotify"
+        }
+    }
+
     var notificationName: String {
         switch self {
         case .music: return "com.apple.Music.playerInfo"

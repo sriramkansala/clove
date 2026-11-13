@@ -142,7 +142,7 @@ struct ProgressBarView: View {
 }
 
 /// The compact player: artwork, title and artist, controls on the same row, scrubber below.
-/// Exactly `IslandLayout.playerHeight` tall.
+/// Exactly `IslandLayout.playerHeight` tall. Clicking the track opens the app playing it.
 struct ExpandedPlayerView: View {
     @ObservedObject var service: NowPlayingService
 
@@ -150,19 +150,22 @@ struct ExpandedPlayerView: View {
         VStack(spacing: 8) {
             HStack(spacing: 10) {
                 Button(action: { service.openPlayerApp() }) {
-                    ArtworkView(image: service.artwork, size: 36, cornerRadius: 8)
+                    HStack(spacing: 10) {
+                        ArtworkView(image: service.artwork, size: 36, cornerRadius: 8)
+
+                        VStack(alignment: .leading, spacing: 1) {
+                            Text(service.track?.title ?? "")
+                                .font(.system(size: 12.5, weight: .semibold))
+                                .foregroundColor(.white)
+                            Text(service.track?.artist ?? "")
+                                .font(.system(size: 11))
+                                .foregroundColor(.white.opacity(0.55))
+                        }
+                        .lineLimit(1)
+                    }
                 }
                 .buttonStyle(.pressable(.subtle, hoverWash: false))
-
-                VStack(alignment: .leading, spacing: 1) {
-                    Text(service.track?.title ?? "")
-                        .font(.system(size: 12.5, weight: .semibold))
-                        .foregroundColor(.white)
-                    Text(service.track?.artist ?? "")
-                        .font(.system(size: 11))
-                        .foregroundColor(.white.opacity(0.55))
-                }
-                .lineLimit(1)
+                .help(service.track.map { "Open \($0.app.displayName)" } ?? "")
 
                 Spacer(minLength: 8)
 
